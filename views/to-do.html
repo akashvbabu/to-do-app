@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Table Style</title>
+	<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/mystyle.css" />
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript">
+	var data;
+	var tdate = new Date();
+		$.getJSON('./to_do_list.json',function(tasks){
+			data = tasks;
+			for(var i=0;i<data.length;i++){
+				var tr = $('<tr>');
+				var td1 = $('<td>').text(tdate.toLocaleDateString());
+				td1.appendTo(tr);
+				var td2 = $('<td>').text(data[i].name);
+				td2.appendTo(tr);
+				var td3 = $('<td>').text(data[i].description);
+				td3.appendTo(tr);
+				var td4 = $('<td>');
+				var mybutton = $('<button>')
+												.attr('id',data[i].name)
+												.attr('onclick',"myfunction(this.id)")
+												.text("Done?");
+				mybutton.appendTo(td4);
+				td4.appendTo(tr);
+				tr.appendTo('#myTbody');
+			}
+		});
+
+		function myfunction(myid){
+			// console.log("I was clicked by:"+myid); working
+			window.location.href="/remove_action?task_name="+myid;
+		}
+	</script>
+</head>
+
+<body>
+<div class="table-title">
+<h3>My Tasks</h3>
+</div>
+<table class="table-fill">
+<thead>
+<tr>
+<th class="text-left">Date Created</th>
+<th class="text-left">Task-Name</th>
+<th class="text-left">Description</th>
+<th class="text-left"></th>
+</tr>
+</thead>
+<tbody class="table-hover" id="myTbody">
+</tbody>
+</table>
+<div class="table-title">
+<a href="/newtask" class="button"><span>:)</span>Add New Task</a>
+</div>
+</body>
+</html>
