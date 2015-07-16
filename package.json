@@ -1,5 +1,13 @@
 {
   "name": "to-do-app",
+  "node-main":"./bin/www",
+  "main":"myhtml.html",
+  "window":{
+      "toolbar":false,
+      "width":800,
+      "height":600,
+      "icon":"./iconapp.icns"
+  },
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -12,9 +20,7 @@
     "express": "~4.12.4",
     "jade": "~1.9.2",
     "morgan": "~1.5.3",
-    "serve-favicon": "~2.2.1"
-  },
-  "devDependencies": {
+    "serve-favicon": "~2.2.1",
     "lodash": "^3.10.0",
     "mustache-express": "^1.2.1"
   }
