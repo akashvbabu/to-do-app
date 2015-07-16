@@ -11,12 +11,17 @@ router.get('/', function(req, res, next) {
 
 router.get('/remove_action',function(req,res){
   var task_to_be_removed = req.param('task_name');
+  console.log(task_to_be_removed);
   var index_to_be_removed = _.findIndex(tasks,'name',task_to_be_removed);
-  tasks.splice(index_to_be_removed);
-  fs.writeFile('./public/to_do_list.json',JSON.stringify(tasks,null,4),function(err){
-    console.log(err);
-  })
-  res.redirect('/');
+  if(index_to_be_removed==-1)
+    console.log('error in finding index');
+  else{
+    tasks.splice(index_to_be_removed,1);
+    fs.writeFile('./public/to_do_list.json',JSON.stringify(tasks,null,4),function(err){
+      console.log(err);
+    });
+  }
+  res.render('./to-do.html');
 });
 
 router.get('/newtask',function(req,res){

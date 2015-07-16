@@ -3,12 +3,4 @@
         "name": "task1",
         "description": "mydescription for task1"
     },
-    {
-        "name": "task2",
-        "description": "mydescription for task1"
-    },
-    {
-        "name": "sample-task",
-        "description": "sample description"
-    }
 ]
