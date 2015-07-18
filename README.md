@@ -1,5 +1,5 @@
 * # to-do-app
-  * ##A to-do-list manager for Windows, MacOS and Linux platforms
+  * ## A to-do-list manager for Windows, MacOS and Linux platforms
 
 * #### Still under development
 * This is an app dveloped using the hybrid framwework ###nwjs 
